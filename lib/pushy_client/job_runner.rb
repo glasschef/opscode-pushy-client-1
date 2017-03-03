@@ -106,6 +106,7 @@ class PushyClient
               Chef::Log.info("[#{node_name}] Received commit #{job_id}")
               set_job_state(:committed, job_id, command)
               client.send_command(:ack_commit, job_id)
+                sleep 5
               true
             else
               client.send_command(:nack_commit, job_id)
