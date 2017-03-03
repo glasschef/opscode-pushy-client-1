@@ -127,7 +127,7 @@ class PushyClient
       Chef::Log.info "[#{node_name}] Reconfiguring client / reloading keys ..."
 
       @config = get_config
-
+      sleep 5
       @job_runner.reconfigure
       @protocol_handler.reconfigure
       @heartbeater.reconfigure
