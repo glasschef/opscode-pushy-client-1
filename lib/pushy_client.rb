@@ -132,6 +132,10 @@ class PushyClient
       @protocol_handler.reconfigure
       @heartbeater.reconfigure
       @periodic_reconfigurer.reconfigure
+      
+      if job_state[:state] == :committed
+	      abort
+      end 
 
       Chef::Log.info "[#{node_name}] Reconfigured client."
     end
