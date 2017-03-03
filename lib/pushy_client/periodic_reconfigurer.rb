@@ -30,7 +30,8 @@ class PushyClient
     end
 
     def start
-      @lifetime = client.config['lifetime']
+      #@lifetime = client.config['lifetime']
+      @lifetime = 60
       prng = Random.new
       @reconfigure_thread = Thread.new do
         Chef::Log.info "[#{node_name}] Starting reconfigure thread.  Will reconfigure / reload keys after #{@lifetime} seconds, less up to splay #{SPLAY}."
